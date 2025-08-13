@@ -1,0 +1,1 @@
+This is the first video of the C++ DSA course. It covers just the basics and does not include coding.
