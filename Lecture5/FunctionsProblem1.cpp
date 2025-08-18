@@ -12,4 +12,5 @@ int sumN(int n){ //parameters
    cout << sumN(5) << endl; //function call
    cout << sumN(10) << endl; //function call
    return 0;
+
 }
