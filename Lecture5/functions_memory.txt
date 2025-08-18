@@ -1,0 +1,132 @@
+# Functions and Memory in C++
+
+This document provides an overview of how functions and memory work together in C++, covering key concepts essential for understanding memory management and function behavior.
+
+## 1. Functions' Memory Addresses
+
+In C++, functions are stored in the code segment of program memory. Each function has a unique memory address:
+
+- Function names act as pointers to their memory addresses
+- You can obtain a function's address using the address-of operator (&)
+- Function pointers can store and call functions through their addresses
+- The code segment is typically read-only and shared among all instances of a program
+
+Example:
+void myFunction() { /* code */ }
+int main() {
+    void (*funcPtr)() = &myFunction;  // Store function address
+    funcPtr();  // Call function through pointer
+}
+
+## 2. Stack vs Heap Memory
+
+### Stack Memory:
+- Used for local variables, function parameters, and return addresses
+- Automatically managed (LIFO - Last In, First Out)
+- Fast allocation and deallocation
+- Limited in size (typically a few MB)
+- Variables are automatically destroyed when going out of scope
+- Memory layout is contiguous and predictable
+
+### Heap Memory:
+- Used for dynamic memory allocation
+- Manually managed using new/delete or malloc/free
+- Larger available space than stack
+- Slower allocation/deallocation than stack
+- Can lead to fragmentation
+- Programmer responsible for cleanup
+
+## 3. Pointers and Memory Management
+
+Pointers are variables that store memory addresses:
+
+- Raw pointers: Direct memory addresses (int* ptr)
+- Smart pointers: Automatic memory management (unique_ptr, shared_ptr)
+- Null pointers: Pointers that don't point to valid memory
+- Dangling pointers: Pointers to deallocated memory
+
+Best practices:
+- Always initialize pointers
+- Check for null before dereferencing
+- Use smart pointers when possible
+- Set pointers to nullptr after deletion
+
+## 4. Dynamic Memory Allocation
+
+C++ provides several ways to allocate memory dynamically:
+
+### Using new/delete:
+```cpp
+int* ptr = new int(10);        // Allocate single integer
+int* arr = new int[100];       // Allocate array
+delete ptr;                    // Free single object
+delete[] arr;                  // Free array
+```
+
+### Using malloc/free (C-style):
+```cpp
+int* ptr = (int*)malloc(sizeof(int));
+free(ptr);
+```
+
+### Modern C++ (Smart Pointers):
+```cpp
+auto ptr = std::make_unique<int>(10);     // Automatic cleanup
+auto shared = std::make_shared<int>(20);  // Reference counting
+```
+
+## 5. Memory Leaks and Common Issues
+
+### Memory Leaks:
+- Occur when allocated memory is not properly deallocated
+- Lead to gradual consumption of available memory
+- Eventually cause program or system slowdown
+- Common causes: forgetting delete, exceptions before cleanup, circular references
+
+### Other Memory Issues:
+
+1. **Double Free**: Attempting to delete already freed memory
+2. **Buffer Overflow**: Writing beyond allocated memory boundaries
+3. **Use After Free**: Accessing memory after it's been deallocated
+4. **Null Pointer Dereference**: Accessing memory through null pointer
+5. **Memory Fragmentation**: Heap becomes scattered, reducing efficiency
+
+### Prevention Strategies:
+- Use RAII (Resource Acquisition Is Initialization) principle
+- Prefer stack allocation when possible
+- Use smart pointers for automatic memory management
+- Implement proper exception handling
+- Use memory debugging tools (Valgrind, AddressSanitizer)
+- Follow the "Rule of Three/Five/Zero"
+
+## 6. Function Call Stack
+
+When functions are called, the following happens:
+
+1. Parameters and return address pushed onto stack
+2. Local variables allocated on stack
+3. Function executes
+4. Return value placed in designated location
+5. Stack frame cleaned up (local variables destroyed)
+6. Control returns to caller
+
+This stack-based mechanism enables:
+- Recursive function calls
+- Automatic variable cleanup
+- Efficient parameter passing
+- Proper scope management
+
+## 7. Best Practices Summary
+
+- Prefer automatic storage (stack) over dynamic allocation when possible
+- Use smart pointers instead of raw pointers for dynamic allocation
+- Always match new with delete, and new[] with delete[]
+- Initialize pointers and set them to nullptr after deletion
+- Use RAII for resource management
+- Avoid circular references with shared_ptr
+- Profile and test for memory leaks regularly
+- Understand object lifetime and scope rules
+
+## Conclusion
+
+Understanding the relationship between functions and memory is crucial for writing efficient, safe C++ code. Proper memory management prevents leaks, crashes, and security vulnerabilities, while understanding the stack and heap helps optimize performance and resource usage.
