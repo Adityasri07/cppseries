@@ -51,5 +51,6 @@ The goal is to build a **strong foundation in problem-solving** while mastering 
    ```bash
    git clone https://github.com/Adityasri07/cppseries.git
 2. Navigate to the folder of a specific topic
+   cd cppseries
 3. Run the C++ file
    g++ filename.cpp -o output && ./output
