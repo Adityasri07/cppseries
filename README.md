@@ -47,10 +47,19 @@ The goal is to build a **strong foundation in problem-solving** while mastering 
 ---
 
 ## 🚀 How to Use
+
 1. Clone the repo  
-   ```bash
-   git clone https://github.com/Adityasri07/cppseries.git
-2. Navigate to the folder of a specific topic
-   cd cppseries
-3. Run the C++ file
-   g++ filename.cpp -o output && ./output
+    ```bash
+    git clone https://github.com/Adityasri07/cppseries.git
+    ```
+
+2. Navigate to the folder of a specific topic  
+    ```bash
+    cd cppseries
+    ```
+
+3. Compile and run the C++ file  
+    ```bash
+    g++ filename.cpp -o output && ./output
+    ```
+
