@@ -31,9 +31,10 @@ The goal is to build a **strong foundation in problem-solving** while mastering 
 - ✅ Linked List (Singly, Doubly, Circular)  
 - ✅ Stack & Queue  
 - ✅ Trees (Binary Tree, BST)  
-- ⬜ Graphs & Algorithms  
-- ⬜ Dynamic Programming  
-- ⬜ Time & Space Complexity  
+- ✅ Graphs & Algorithms  
+- ✅ Dynamic Programming  
+- ✅ Time & Space Complexity  
+- 🚀 And more
 
 ---
 
@@ -49,3 +50,6 @@ The goal is to build a **strong foundation in problem-solving** while mastering 
 1. Clone the repo  
    ```bash
    git clone https://github.com/Adityasri07/cppseries.git
+2. Navigate to the folder of a specific topic
+3. Run the C++ file
+   g++ filename.cpp -o output && ./output
