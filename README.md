@@ -1,6 +1,6 @@
 # 📚 cppseries
 
-## 🚀 C++ Series – DSA (Apna College, Shradha Khapra)
+## 🚀 C++ Series – DSA (Apna College)
 
 This repository (**cppseries**) contains my **Data Structures and Algorithms (DSA)** journey in **C++**, following the lectures and roadmap of **Shradha Khapra (Apna College)**.  
 
