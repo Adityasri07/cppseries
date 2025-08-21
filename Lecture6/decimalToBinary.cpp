@@ -1,4 +1,4 @@
-#include <iostream>
+include <iostream>
 using namespace std;
 
 int decToBinary(int decNum) {
@@ -22,4 +22,5 @@ int main(){
     cout << decToBinary(i) <<endl;
     }
     return 0;
+
 }
